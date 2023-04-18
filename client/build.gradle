@@ -1,12 +1,12 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.5'
+	id 'org.springframework.boot' version '2.7.3'
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.humuson'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '8'
 
 repositories {
 	mavenCentral()
@@ -14,12 +14,12 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2022.0.2")
+	set('springCloudVersion', "2021.0.3")
 }
 
 dependencies {
-	// SpringBoot
-	implementation 'org.springframework.boot:spring-boot-starter'
+	// Spring Web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	// Eureka Client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
