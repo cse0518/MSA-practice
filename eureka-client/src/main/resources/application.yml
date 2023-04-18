@@ -4,9 +4,16 @@ spring:
 
 server:
   port: 8081
+#  servlet:
+#    context-path: /pub
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka # Eureka Server
     disable-delta: true # 캐싱 시 변경된 부분만 업데이트
+
+kafka:
+  bootstrapAddress: localhost:9092
+topic:
+  name: test-topic
