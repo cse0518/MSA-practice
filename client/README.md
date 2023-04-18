@@ -2,6 +2,8 @@
 
 Spring Cloud Gateway - Eureka Client 구현
 
+<br/>
+
 ## Eureka Client Settings
 
 - 처음 spring initialization 할 때 설정을 해줘야 에러가 나지 않음.
