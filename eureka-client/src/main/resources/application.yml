@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eureka-client
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka # Eureka Server
+    disable-delta: true # 캐싱 시 변경된 부분만 업데이트
