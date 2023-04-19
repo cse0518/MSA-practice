@@ -46,16 +46,3 @@ Eureka Client들은 다른 Client들의 정보를 확인해 통신할 수 있습
 - 스스로 자신의 meta 정보를 eureka server에 등록
 - 서버로부터 registry 정보를 가져와 캐싱하고 주기적으로 변경사항을 확인한다.  
   이를 통해 다른 client들의 정보를 알 수 있음
-
-<br/>
-
-### Kafka Pub, Sub Test
-
-
-### 실행
-eureka server 실행
-spring cloud gateway 실행
-eureka client1 실행
-eureka client2 실행
-zookeeper 실행
-kafka 실행
