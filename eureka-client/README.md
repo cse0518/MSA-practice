@@ -4,12 +4,26 @@ Spring Cloud Gateway - Eureka Client 구현
 
 <br/>
 
+## Index
+
+- [Eureka Client Settings](#eureka-client-settings)
+  - [Dependency](#dependency)
+  - [@EnableDiscoveryClient](#enablediscoveryclient)
+  - [Property](#property)
+  - [Rest Controller](#rest-controller)
+
+<br/>
+
 ## Eureka Client Settings
+
+### Dependency
 
 - 처음 spring initialization 할 때 설정을 해줘야 에러가 나지 않음.
 - `Spring Web`, `Eureka Discovery Client` dependencies 추가
 
 <br/>
+
+### @EnableDiscoveryClient
 
 - main 클래스에 `@EnableDiscoveryClient` 추가
   ```java
@@ -21,7 +35,11 @@ Spring Cloud Gateway - Eureka Client 구현
       }
   }
   ```
-  
+
+<br/>
+
+### Property
+
 - property 설정 (application.yml)
   ```yaml
   spring:
@@ -36,6 +54,10 @@ Spring Cloud Gateway - Eureka Client 구현
       service-url:
         defaultZone: http://localhost:8761/eureka # Eureka Server
   ```
+
+<br/>
+
+### Rest Controller
 
 - 간단한 Rest Controller 구현
   ```java

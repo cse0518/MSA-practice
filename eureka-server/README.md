@@ -4,7 +4,18 @@ Spring Cloud Gateway - Eureka Server 구현
 
 <br/>
 
+## Index
+
+- [Eureka Server Settings](#eureka-server-settings)
+  - [Dependency](#dependency)
+  - [@EnableEurekaServer](#enableeurekaserver)
+  - [Property](#property)
+
+<br/>
+
 ## Eureka Server Settings
+
+### Dependency
 
 - build 파일 의존성 추가
   ```groovy
@@ -12,6 +23,10 @@ Spring Cloud Gateway - Eureka Server 구현
       implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
   }
   ```
+
+<br/>
+
+### @EnableEurekaServer
   
 - main 클래스에 `@EnableEurekaServer` 추가
   ```java
@@ -23,7 +38,11 @@ Spring Cloud Gateway - Eureka Server 구현
       }
   }
   ```
-  
+
+<br/>
+
+### Property
+
 - property 설정 (application.yml)
   ```yaml
   server:

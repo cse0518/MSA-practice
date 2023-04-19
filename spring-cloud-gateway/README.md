@@ -1,18 +1,31 @@
-# Spring Cloud Gateway 구현
+## Spring Cloud Gateway 구현
 
 Spring Cloud Gateway 구현
 
 <br/>
 
-## API Gateway Settings
+## Index
 
-- dependencies 추가
-  - `Spring Reactive Web`
-  - `Eureka Discovery Client`
-  - `Gateway`
-- 비동기, 논블로킹 처리를 위해 spring reactive web 사용
+- [API Gateway Settings](#api-gateway-settings)
+  - [Dependency](#dependency)
+  - [@EnableDiscoveryClient](#enablediscoveryclient)
+  - [Property](#property)
+  - [Configuration](#configuration)
 
 <br/>
+
+## API Gateway Settings
+
+### Dependency
+
+- `Spring Reactive Web`
+  - 비동기, 논블로킹 처리를 위해 spring reactive web 사용
+- `Eureka Discovery Client`
+- `Gateway`
+
+<br/>
+
+### @EnableDiscoveryClient
 
 - main 클래스에 `@EnableDiscoveryClient` 추가
   ```java
@@ -24,7 +37,11 @@ Spring Cloud Gateway 구현
       }
   }
   ```
-  
+
+<br/>
+
+### Property
+
 - property 설정 (application.yml)
   ```yaml
   spring:
@@ -39,6 +56,10 @@ Spring Cloud Gateway 구현
       service-url:
         defaultZone: http://localhost:8761/eureka # Eureka Server
   ```
+
+<br/>
+
+### Configuration
 
 - Routing Configuration 추가
   - `uri`에 application name 설정
