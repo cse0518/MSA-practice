@@ -1,0 +1,72 @@
+version: "3"
+services:
+  zookeeper:
+    container_name: 'zookeeper'
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    container_name: 'kafka'
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '9092:9092'
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_KRAFT_CLUSTER_ID=my-cluster
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
+  eureka-server:
+    container_name: 'eureka-server'
+    image: 'cse0518/eureka-server:ver_1'
+    ports:
+      - '8761:8761'
+    depends_on:
+      - kafka
+
+  eureka-gateway:
+    container_name: 'eureka-gateway'
+    image: 'cse0518/eureka-gateway:ver_1'
+    ports:
+      - '8080:8080'
+    depends_on:
+      - eureka-server
+
+  eureka-client1:
+    container_name: 'eureka-client1'
+    image: 'cse0518/eureka-client1:ver_1'
+    ports:
+      - '8081:8081'
+    depends_on:
+      - eureka-gateway
+
+  eureka-client2:
+    container_name: 'eureka-client2'
+    image: 'cse0518/eureka-client2:ver_1'
+    ports:
+      - '8082:8082'
+    depends_on:
+      - eureka-gateway
+
+  telnet-server:
+    container_name: 'telnet-server'
+    image: 'cse0518/telnet-server:ver_1'
+    ports:
+      - '8090:8090'
+
+  telnet-client:
+    container_name: 'telnet-client'
+    image: 'cse0518/telnet-client:ver_1'
+    depends_on:
+      - kafka
+      - telnet-server
+    ports:
+      - '8091:8091'
