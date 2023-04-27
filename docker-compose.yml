@@ -22,13 +22,12 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      KAFKA_CREATE_TOPICS: "test-topic"
     depends_on:
       zookeeper:
         condition: service_healthy
     healthcheck:
-      test: if netstat -ltn | grep -c "2181"; then echo 0; else echo 1; fi
+      test: if netstat -ltn | grep -c "9092"; then echo 0; else echo 1; fi
       interval: 10s
       timeout: 5s
       retries: 2
@@ -41,6 +40,11 @@ services:
     depends_on:
       kafka:
         condition: service_healthy
+    healthcheck:
+      test: if netstat -ltn | grep -c "8761"; then echo 0; else echo 1; fi
+      interval: 10s
+      timeout: 5s
+      retries: 2
 
   eureka-gateway:
     container_name: 'eureka-gateway'
@@ -48,7 +52,13 @@ services:
     ports:
       - '8080:8080'
     depends_on:
-      - eureka-server
+      eureka-server:
+        condition: service_healthy
+    healthcheck:
+      test: if netstat -ltn | grep -c "8080"; then echo 0; else echo 1; fi
+      interval: 10s
+      timeout: 5s
+      retries: 2
 
   eureka-client1:
     container_name: 'eureka-client1'
@@ -56,7 +66,13 @@ services:
     ports:
       - '8081:8081'
     depends_on:
-      - eureka-gateway
+      eureka-gateway:
+        condition: service_healthy
+    healthcheck:
+      test: if netstat -ltn | grep -c "8081"; then echo 0; else echo 1; fi
+      interval: 10s
+      timeout: 5s
+      retries: 2
 
   eureka-client2:
     container_name: 'eureka-client2'
@@ -64,19 +80,27 @@ services:
     ports:
       - '8082:8082'
     depends_on:
-      - eureka-client1
+      eureka-client1:
+        condition: service_healthy
 
   telnet-server:
     container_name: 'telnet-server'
     image: 'cse0518/telnet-server:ver_1'
     ports:
       - '8090:8090'
+    healthcheck:
+      test: if netstat -ltn | grep -c "8090"; then echo 0; else echo 1; fi
+      interval: 10s
+      timeout: 5s
+      retries: 2
 
   telnet-client:
     container_name: 'telnet-client'
     image: 'cse0518/telnet-client:ver_1'
     depends_on:
-      - kafka
-      - telnet-server
+      kafka:
+        condition: service_healthy
+      telnet-server:
+        condition: service_healthy
     ports:
       - '8091:8091'

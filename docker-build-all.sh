@@ -24,7 +24,7 @@ docker build --no-cache -t ${username}/eureka-client1:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
 echo "# Eureka-Client2 Docker Image Build..."
-cd ../eureka-client2
+cd ../eureka-client-2nd
 docker build --no-cache -t ${username}/eureka-client2:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
