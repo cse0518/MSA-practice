@@ -7,7 +7,7 @@ echo "# Move to eureka directory"
 cd ${eureka_dir}
 
 echo "# Eureka-Server Gradle Build..."
-cd eureka-server
+cd ./eureka-server
 ./gradlew clean build
 
 echo "# Eureka-Gateway Gradle Build..."
@@ -26,9 +26,9 @@ echo "# Move to netty directory"
 cd ${netty_dir}
 
 echo "# Telnet-Server Gradle Build..."
-cd ./telnet-server
+cd ./netty-server
 ./gradlew clean build
 
 echo "# Telnet-Client Gradle Build..."
-cd ../telnet-client
+cd ../netty-client
 ./gradlew clean build

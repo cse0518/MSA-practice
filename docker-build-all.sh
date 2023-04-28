@@ -31,12 +31,12 @@ echo "# Docker Build Success ------------------------------------------"
 echo "# Move to netty directory"
 cd ${netty_dir}
 
-echo "# Telnet-Server Docker Image Build..."
-cd ./telnet-server
+echo "# Netty-Server Docker Image Build..."
+cd ./netty-server
 docker build --no-cache -t ${username}/netty-server:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
-echo "# Telnet-Client Docker Image Build..."
-cd ./telnet-client
+echo "# Netty-Client Docker Image Build..."
+cd ../netty-client
 docker build --no-cache -t ${username}/netty-client:${version} .
 echo "# Docker Build Success ------------------------------------------"
