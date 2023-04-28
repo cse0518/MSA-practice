@@ -33,10 +33,10 @@ cd ${netty_dir}
 
 echo "# Telnet-Server Docker Image Build..."
 cd ./telnet-server
-docker build --no-cache -t ${username}/telnet-server:${version} .
+docker build --no-cache -t ${username}/netty-server:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
 echo "# Telnet-Client Docker Image Build..."
 cd ./telnet-client
-docker build --no-cache -t ${username}/telnet-client:${version} .
+docker build --no-cache -t ${username}/netty-client:${version} .
 echo "# Docker Build Success ------------------------------------------"

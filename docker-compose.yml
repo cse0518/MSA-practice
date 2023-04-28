@@ -83,9 +83,9 @@ services:
       eureka-client1:
         condition: service_healthy
 
-  telnet-server:
-    container_name: 'telnet-server'
-    image: 'cse0518/telnet-server:ver_1'
+  netty-server:
+    container_name: 'netty-server'
+    image: 'cse0518/netty-server:ver_1'
     ports:
       - '8090:8090'
     healthcheck:
@@ -94,13 +94,13 @@ services:
       timeout: 5s
       retries: 2
 
-  telnet-client:
-    container_name: 'telnet-client'
-    image: 'cse0518/telnet-client:ver_1'
+  netty-client:
+    container_name: 'netty-client'
+    image: 'cse0518/netty-client:ver_1'
     depends_on:
       kafka:
         condition: service_healthy
-      telnet-server:
+      netty-server:
         condition: service_healthy
     ports:
       - '8091:8091'
