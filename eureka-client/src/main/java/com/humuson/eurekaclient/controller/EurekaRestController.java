@@ -1,7 +1,7 @@
 package com.humuson.eurekaclient.controller;
 
 import com.humuson.eurekaclient.dto.TestDto;
-import com.humuson.eurekaclient.publisher.Publisher;
+import com.humuson.eurekaclient.producer.Producer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +13,10 @@ public class EurekaRestController {
     @Value("${server.port}")
     private String port;
 
-    private final Publisher publisher;
+    private final Producer producer;
 
-    public EurekaRestController(Publisher publisher) {
-        this.publisher = publisher;
+    public EurekaRestController(Producer producer) {
+        this.producer = producer;
     }
 
     @GetMapping("/test")
