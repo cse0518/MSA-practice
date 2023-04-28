@@ -14,4 +14,4 @@ eureka:
 kafka:
   bootstrapAddress: kafka:9092
 topic:
-  name: test-topic
+  name: testTopic
