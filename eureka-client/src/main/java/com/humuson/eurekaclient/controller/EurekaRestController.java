@@ -30,7 +30,8 @@ public class EurekaRestController {
             @RequestBody TestDto testDto
     ) {
         testDto.setOrderId(orderId.intValue());
-        publisher.publish(testDto);
+        String message = testDto.toString();
+        producer.publish(message);
         return ResponseEntity.ok().build();
     }
 }
