@@ -1,17 +1,18 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: eureka-client
-
-server:
-  port: 8081
+  kafka:
+    bootstrapAddress: kafka:9092
+    topic:
+      name: testTopic
+    consumer:
+      group-id: testGroup
 
 eureka:
   client:
     service-url:
       defaultZone: http://eureka-server:8761/eureka
     disable-delta: true
-
-kafka:
-  bootstrapAddress: kafka:9092
-topic:
-  name: testTopic

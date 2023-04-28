@@ -12,7 +12,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Component
 public class Producer {
 
-    @Value(value = "${topic.name}")
+    @Value(value = "${spring.kafka.topic.name}")
     private String topicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;
