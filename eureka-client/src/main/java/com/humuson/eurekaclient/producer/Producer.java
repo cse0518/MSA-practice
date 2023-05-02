@@ -29,12 +29,12 @@ public class Producer {
             public void onSuccess(SendResult<String, String> result) {
                 String data = result.getProducerRecord().value();
                 long offset = result.getRecordMetadata().offset();
-                log.info("Sent message=[" + data + "] with offset=[" + offset + "]");
+                log.info("Sent message=[{}] with offset=[{}]", data, offset);
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                log.info("Unable to send message - due to : " + ex.getMessage());
+                log.info("Unable to send message - due to : {}", ex.getMessage());
             }
         });
     }
