@@ -1,6 +1,6 @@
 # Spring Eureka Client
 
-Spring Cloud Gateway - Eureka Client-2nd 구현
+Eureka Client-2nd 구현
 
 <br/>
 
@@ -29,9 +29,9 @@ Spring Cloud Gateway - Eureka Client-2nd 구현
   ```java
   @SpringBootApplication
   @EnableDiscoveryClient
-  public class DiscoveryApplication {
+  public class EurekaClient2ndApplication {
       public static void main(String[] args) {
-          SpringApplication.run(DiscoveryApplication.class, args);
+          SpringApplication.run(EurekaClient2ndApplication.class, args);
       }
   }
   ```

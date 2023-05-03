@@ -19,15 +19,29 @@ Spring Cloud Gateway 구현
 ### Dependency
 
 - `Spring Reactive Web`
-  - 비동기, 논블로킹 처리를 위해 spring reactive web 사용
+  - 비동기, 논블로킹 처리를 위해 spring reactive web(webflux) 사용
 - `Eureka Discovery Client`
-- `Gateway`
+- `Spring-Cloud-Gateway`
+
+```groovy
+dependencies {
+    // Webflux
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // Gateway
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+
+    // Eureka Client
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}
+```
 
 <br/>
 
 ### @EnableDiscoveryClient
 
 - main 클래스에 `@EnableDiscoveryClient` 추가
+  - eureka client로 등록
   ```java
   @SpringBootApplication
   @EnableDiscoveryClient
@@ -63,6 +77,7 @@ Spring Cloud Gateway 구현
 
 - Routing Configuration 추가
   - `uri`에 application name 설정
+  - 비동기적으로 로드 밸런싱
   ```java
   @Configuration
   public class RoutingConfig {
