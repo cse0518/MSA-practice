@@ -1,10 +1,5 @@
 #! /bin/sh
 
-eureka_dir="C:/Users/USER/Desktop/spring eureka"
-
-echo "# Move to eureka directory"
-cd ${eureka_dir}
-
 echo "# Eureka-Server Gradle Build..."
 cd ./eureka-server
 ./gradlew clean build

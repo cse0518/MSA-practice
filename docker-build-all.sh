@@ -1,11 +1,7 @@
 #! /bin/sh
 
-eureka_dir="C:/Users/USER/Desktop/spring eureka"
 username="cse0518"
 version="ver_1"
-
-echo "# Move to eureka directory"
-cd ${eureka_dir}
 
 echo "# Eureka-Server Docker Image Build..."
 cd ./eureka-server
