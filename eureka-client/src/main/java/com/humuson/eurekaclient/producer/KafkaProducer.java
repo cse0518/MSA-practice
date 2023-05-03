@@ -10,14 +10,14 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Slf4j
 @Component
-public class Producer {
+public class KafkaProducer {
 
     @Value(value = "${spring.kafka.topic.name}")
     private String topicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public Producer(KafkaTemplate<String, String> kafkaTemplate) {
+    public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 

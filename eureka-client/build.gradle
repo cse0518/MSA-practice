@@ -24,8 +24,8 @@ ext {
 }
 
 dependencies {
-	// Spring Web
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// WebFlux
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
 	// Eureka Client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
@@ -40,6 +40,7 @@ dependencies {
 
 	// Test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 }
 
