@@ -1,7 +1,6 @@
 #! /bin/sh
 
 eureka_dir="C:/Users/USER/Desktop/spring eureka"
-netty_dir="C:/Users/USER/Desktop/Netty-Telnet"
 username="cse0518"
 version="ver_1"
 
@@ -28,11 +27,8 @@ cd ../eureka-client-2nd
 docker build --no-cache -t ${username}/eureka-client2:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
-echo "# Move to netty directory"
-cd ${netty_dir}
-
 echo "# Netty-Server Docker Image Build..."
-cd ./netty-server
+cd ../Netty-Telnet/netty-server
 docker build --no-cache -t ${username}/netty-server:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
