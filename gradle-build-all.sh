@@ -25,10 +25,10 @@ cd ../eureka-client-2nd
 echo "# Move to netty directory"
 cd ${netty_dir}
 
-echo "# Telnet-Server Gradle Build..."
+echo "# Netty-Server Gradle Build..."
 cd ./netty-server
 ./gradlew clean build
 
-echo "# Telnet-Client Gradle Build..."
+echo "# Netty-Client Gradle Build..."
 cd ../netty-client
 ./gradlew clean build
