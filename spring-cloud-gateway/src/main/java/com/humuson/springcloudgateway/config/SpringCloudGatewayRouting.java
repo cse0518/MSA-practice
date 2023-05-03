@@ -11,8 +11,8 @@ public class SpringCloudGatewayRouting {
     @Bean
     public RouteLocator configurationRoute(RouteLocatorBuilder rlb) {
         return rlb.routes()
-                .route("id", r -> r.path("/client/**").uri("lb://eureka-client"))
-                .route("id", r -> r.path("/client2/**").uri("lb://eureka-client-2nd"))
+                .route("id", r -> r.path("/service1/**").uri("lb://eureka-client"))
+                .route("id", r -> r.path("/service2/**").uri("lb://eureka-client-2nd"))
                 .build();
     }
 }

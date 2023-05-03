@@ -39,7 +39,9 @@ public class TestRestController {
         Mono<TestDto> testDto = request.bodyToMono(TestDto.class);
         // repository.save(testDto.toEntity());
 
-        kafkaProducer.publish(testDto.toString());
-        return ServerResponse.created(URI.create("/service1/order/1")).build();
+        return testDto.flatMap(dto -> {
+            kafkaProducer.publish(dto.toString());
+            return ServerResponse.created(URI.create("/service1/order/" + dto.getOrderId())).build();
+        });
     }
 }

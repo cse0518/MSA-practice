@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/client2")
+@RequestMapping("/service2")
 public class EurekaRestController {
 
     @Value("${server.port}")
@@ -15,6 +15,6 @@ public class EurekaRestController {
 
     @GetMapping("/status")
     public ResponseEntity<String> getStatus() {
-        return ResponseEntity.ok("Client2 server is running on port : " + port);
+        return ResponseEntity.ok("Service2 server is running on port : " + port);
     }
 }
