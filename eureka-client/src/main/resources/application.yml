@@ -8,8 +8,6 @@ spring:
     bootstrapAddress: kafka:9092
     topic:
       name: testTopic
-    consumer:
-      group-id: testGroup
 
 eureka:
   client:

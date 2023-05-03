@@ -96,10 +96,10 @@ services:
   netty-client:
     container_name: 'netty-client'
     image: 'cse0518/netty-client:ver_1'
+    ports:
+      - '8091:8091'
     depends_on:
       kafka:
         condition: service_healthy
       netty-server:
         condition: service_healthy
-    ports:
-      - '8091:8091'
