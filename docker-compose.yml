@@ -31,6 +31,20 @@ services:
       timeout: 5s
       retries: 2
 
+  kafka-manager-cmak:
+    container_name: 'kafka-manager-cmak'
+    image: 'hlebalbau/kafka-manager'
+    restart: on-failure
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      APPLICATION_SECRET: "random-secret"
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
   eureka-server:
     container_name: 'eureka-server'
     image: 'cse0518/eureka-server:ver_1'
