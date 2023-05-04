@@ -1,5 +1,7 @@
 package com.humuson.eurekaclient.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.humuson.eurekaclient.dto.TestDto;
 import com.humuson.eurekaclient.producer.KafkaProducer;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,8 @@ public class TestRestController {
 
     @Value("${server.port}")
     private String port;
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     private final KafkaProducer kafkaProducer;
 
@@ -40,7 +44,14 @@ public class TestRestController {
         // repository.save(testDto.toEntity());
 
         return testDto.flatMap(dto -> {
-            kafkaProducer.publish(dto.toString());
+            String data;
+            try {
+                data = objectMapper.writeValueAsString(dto);
+            } catch (JsonProcessingException e) {
+                return Mono.error(new RuntimeException(e));
+            }
+
+            kafkaProducer.publish(data);
             return ServerResponse.created(URI.create("/service1/order/" + dto.getOrderId())).build();
         });
     }
