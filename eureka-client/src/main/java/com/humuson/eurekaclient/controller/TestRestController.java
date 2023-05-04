@@ -3,7 +3,7 @@ package com.humuson.eurekaclient.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.humuson.eurekaclient.dto.TestDto;
-import com.humuson.eurekaclient.producer.KafkaProducer;
+import com.humuson.eurekaclient.kafka.KafkaProducer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
