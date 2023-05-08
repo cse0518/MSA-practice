@@ -42,7 +42,7 @@ services:
       APPLICATION_SECRET: "random-secret"
       KM_ARGS: -Djava.net.preferIPv4Stack=true
     depends_on:
-      zookeeper:
+      kafka:
         condition: service_healthy
 
   eureka-server:
