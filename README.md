@@ -13,7 +13,7 @@
   ./run.sh
   
   # docker-compose container 내리고 삭제
-  docker-compose -f docker/docker-compose.yml down
+  docker-compose -f docker/docker-compose.yml -p msa-project down
   ```
 
 <br/>

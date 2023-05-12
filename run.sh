@@ -9,7 +9,7 @@ echo "##### docker-image-build-all #####"
 sleep 1s
 
 echo "##### docker-compose up #####"
-docker-compose -f docker/docker-compose.yml up -d
+docker-compose -f docker/docker-compose.yml -p msa-project up -d
 sleep 1s
 
 echo "##### zookeeper-add-znodes #####"
