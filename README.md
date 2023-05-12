@@ -1,10 +1,19 @@
 ## Index
 
+- [실행](#실행)
 - [MSA 환경 구현](#msa-환경-구현)
 - [Spring Cloud Gateway](#spring-cloud-gateway)
 - [Spring Eureka](#spring-eureka)
   - [Eureka Server](#eureka-server)
   - [Eureka Client](#eureka-client)
+
+<br/>
+
+## 실행
+
+```shell
+./run.sh
+```
 
 <br/>
 

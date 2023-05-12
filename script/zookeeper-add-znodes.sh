@@ -1,7 +1,7 @@
 #! /bin/sh
 
 echo "# Add Zookeeper's ZNodes"
-docker-compose exec -t zookeeper bash <<EOF
+docker-compose -f docker/docker-compose.yml exec -t zookeeper bash <<EOF
   sleep 0.3s
   ./bin/zkCli.sh
     create /kafka-manager/mutex ""
