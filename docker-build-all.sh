@@ -4,7 +4,7 @@ username="cse0518"
 version="ver_1"
 
 echo "# Eureka-Server Docker Image Build..."
-cd ./eureka-server
+cd ./Spring-Eureka/eureka-server
 docker build --no-cache -t ${username}/eureka-server:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
@@ -24,7 +24,7 @@ docker build --no-cache -t ${username}/eureka-client2:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
 echo "# Netty-Server Docker Image Build..."
-cd ../Netty-Telnet/netty-server
+cd ../../Netty-Telnet/netty-server
 docker build --no-cache -t ${username}/netty-server:${version} .
 echo "# Docker Build Success ------------------------------------------"
 
