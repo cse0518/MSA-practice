@@ -9,7 +9,7 @@
   # submodules 포함하여 clone (--recursive 옵션)
   git clone --recursive https://github.com/cse0518/MSA-practice.git
   
-  # 스크립트 실행
+  # 스크립트 실행 (gradle build → docker image build → docker-compose up)
   ./run.sh
   
   # docker-compose container 내리고 삭제
@@ -70,14 +70,18 @@
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/60170616/235823924-3633687d-b016-4e2d-af1d-24d07f8f555e.png" alt="https://user-images.githubusercontent.com/60170616/235823924-3633687d-b016-4e2d-af1d-24d07f8f555e.png" width="700">
+### 3. 비동기식으로 작업을 처리하기 위해 MQ(Kafka) 활용
 
-### 3. Kafka
-
-모니터링 CMAK
+- 각 모듈에서 비동기식으로 요청을 처리하기 위해 MQ(Kafka)를 사용했습니다.
+- 동시에 처리되는 개수를 제어하고, 데이터 복원력 향상을 도모합니다.
+- Kafka 환경을 모니터링 하기 위해 CMAK을 사용했습니다.
+  - Kafka Cluster 및 Topic 등 관리
+  - Kafka Lag 모니터링
 
 <br/>
 
-### 4. Kafka Pub Sub
+<img src="https://github.com/cse0518/MSA-practice/assets/60170616/d2cfe502-3ce4-4625-ad5c-8a8489bbcae7" alt="https://github.com/cse0518/MSA-practice/assets/60170616/d2cfe502-3ce4-4625-ad5c-8a8489bbcae7" width="700">
 
-1. Netty 통신
+### 4. 적은 스레드로 많은 요청을 효율적으로 처리하기 위해 Netty 활용
+
+- Kafka에서 consume 한 데이터를 비동기식으로 효율적으로 처리하기 위해 Netty를 사용했습니다.
