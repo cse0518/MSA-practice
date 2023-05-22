@@ -9,11 +9,15 @@
   # submodules 포함하여 clone (--recursive 옵션)
   git clone --recursive https://github.com/cse0518/MSA-practice.git
   
-  # 스크립트 실행 (gradle build → docker image build → docker-compose up)
+  # 프로젝트 실행 (docker-compose up → zookeeper 추가 세팅)
   ./run.sh
   
-  # docker-compose container 내리고 삭제
+  # docker-compose down
   docker-compose -f docker/docker-compose.yml -p msa-project down
+  
+  # local 환경에서 jar 파일 백그라운드로 실행 (권장하지 않음)
+  ./script/gradle-build-all.sh # gradle 빌드
+  ./script/run-local.sh # jar 파일 실행
   ```
 
 <br/>
