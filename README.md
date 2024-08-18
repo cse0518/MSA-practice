@@ -36,7 +36,7 @@
 
 ## 📑 프로젝트 소개
 
-![all-structure](https://github.com/cse0518/MSA/assets/60170616/4e8cbd89-4c56-48e8-a8b0-bc904e7ca52a)
+![all-structure](https://github.com/user-attachments/assets/4b647fda-76a9-47a9-a290-f94fb4e94fda)
 
 - 마이크로서비스 구조에 **Spring Cloud Gataway**와 **Spring Eureka**를 적용하여 모든 서비스에 대한 인증 및 로드밸런싱을 구현합니다.
 - Eureka Client에서는 WebFlux를 활용하여 비동기적으로 HTTP 요청을 처리합니다.
@@ -86,7 +86,7 @@
 
 <br/>
 
-<img src="https://github.com/cse0518/MSA-practice/assets/60170616/d2cfe502-3ce4-4625-ad5c-8a8489bbcae7" alt="https://github.com/cse0518/MSA-practice/assets/60170616/d2cfe502-3ce4-4625-ad5c-8a8489bbcae7" width="700">
+<img src="https://github.com/user-attachments/assets/3afa2d02-5214-4d67-9101-bde0a8be13f6" alt="https://github.com/cse0518/MSA-practice/assets/60170616/d2cfe502-3ce4-4625-ad5c-8a8489bbcae7" width="700">
 
 ### 4. 적은 스레드로 많은 요청을 효율적으로 처리하기 위해 Netty 활용
 
